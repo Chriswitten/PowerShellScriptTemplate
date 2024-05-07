@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "Diagnostic Run",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}\\CalabrioUserSync.ps1",
+            "cwd": "${workspaceFolder}",
+            "args": [ "-Verbose",
+                "-debug",
+                "-CalabrioCredentialsFile $home\\.creds\\CalabrioCredentials.xml",
+                "-ADCredentialsFile $home\\.creds\\ProdActiveDirectoryCredentials.xml",
+                "-HiBobCredentialsFile $home\\.creds\\HiBobCredentials.xml",
+                "-diagnosticMode",
+                "-RemoteADConnection",
+                "-EmailReport",
+                "-ADDomainController tl-dc01v.thetrainline.com",
+                "-SMTPServer mail.thetrainline.com"]
+        },
+        {
+            "name": "Live Run",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}\\CalabrioUserSync.ps1",
+            "cwd": "${workspaceFolder}",
+            "args": [ "-Verbose",
+                "-debug",
+                "-CalabrioCredentialsFile $home\\.creds\\CalabrioCredentials.xml",
+                "-ADCredentialsFile $home\\.creds\\ProdActiveDirectoryCredentials.xml",
+                "-HiBobCredentialsFile $home\\.creds\\HiBobCredentials.xml",
+                "-RemoteADConnection",
+                "-EmailReport",
+                "-ADDomainController tl-dc01v.thetrainline.com",
+                "-SMTPServer mail.thetrainline.com"]
+        }
+    ]
+}
